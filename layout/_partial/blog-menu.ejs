@@ -1,0 +1,13 @@
+<section id="blog-nav">
+    <ul class="tags-nav">
+      <h2 class="nav-title">browse blog:</h2>
+      <% var tag = page.tag %>
+      <a href="/"><li class="menu-item <% if (!tag) { %> selected<% } %>">all</li></a>
+      <a href="/tags/productivity"><li class="menu-item<% if (tag == 'productivity') { %> selected<% } %>">productivity</li></a>
+      <a href="/tags/coding"><li class="menu-item<% if (tag == 'coding') { %> selected<% } %>">coding</li></a>
+      <a href="/tags/money"><li class="menu-item<% if (tag == 'money') { %> selected<% } %>">money</li></a>
+      <a href="/tags/career"><li class="menu-item<% if (tag == 'career') { %> selected<% } %>">career</li></a>
+      <a href="/tags/lifestyle"><li class="menu-item<% if (tag == 'lifestyle') { %> selected<% } %>">lifestyle</li></a>
+    </ul>
+    <p></p>
+  </section>
