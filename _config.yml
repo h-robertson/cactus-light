@@ -10,10 +10,10 @@ customize:
     gravatar:
         email:
     logo:
-        enabled: true
+        enabled: false
         width: 50
         height: 50
-        url: /images/logo.png
+        url:
         gravatar: false
     favicon:
       # eg. generate with http://realfavicongenerator.net/
@@ -26,14 +26,8 @@ customize:
       apple:
         url: /images/apple-touch-icon.png
         gravator: false
-    social_links:
-        github: http://github.com/gabithume/cactus-light
-        twitter: /
-        facebook: /
-        linkedin: /
-    show_all_posts: false
+    show_all_posts: true
     post_count: 5
-    highlight: monokai
 
 # RSS
 rss: false
