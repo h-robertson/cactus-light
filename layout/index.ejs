@@ -1,25 +1,48 @@
 <% if (theme.customize.show_all_posts) { %>
-  <%- partial('_partial/blog-menu') %>
+<%- partial('_partial/blog-menu') %>
 <% } %>
 
 <section id="archive">
   <span class="h1"><a href="<%- url_for("archive") %>">archive</a></span>
   <ul class="post-list">
     <% if (theme.customize.show_all_posts) { %>
-      <% var show_posts = page.posts.sort('date', 'desc') %>
+    <% var show_posts = page.posts.sort('date', 'desc') %>
     <% } else { %>
-      <% var show_posts = site.posts.sort('date', 'desc').limit(theme.customize.post_count || 5) %>
+    <% var show_posts = site.posts.sort('date', 'desc').limit(theme.customize.post_count || 5) %>
     <% } %>
     <% show_posts.each(function(post, i){ %>
-      <li class="post-item">
-        <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
-        <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
-      </li>
+    <li class="post-item">
+      <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
+      <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
+    </li>
     <% }); %>
   </ul>
+  <video class="corner-top-left" autoplay muted type="video/mp4"
+    style="height:28vh; position: absolute;left: 0px;top: 0px;" src="/images/muddle-corner1.mp4"></video>
+  <video class="corner-top-right" muted type="video/mp4" style="height:14vh; position: absolute;right: 0px;top: 0px;"
+    src="/images/muddle-corner2.mp4"></video>
+  <video class="corner-bottom-left" muted type="video/mp4"
+    style="height:25vh; position: absolute;left: 0px;bottom: 0px;" src="/images/muddle-corner3.mp4"></video>
+  <video class="corner-bottom-right" muted type="video/mp4"
+    style="height:22vh; position: absolute;right: 0px;bottom: 0px;" src="/images/muddle-corner4.mp4"></video>
   <% if (theme.customize.show_all_posts) { %>
-    <%- partial('_partial/pagination') %>
+  <%- partial('_partial/pagination') %>
   <% } %>
+  <script>
+    var topRight = document.querySelector('.corner-top-right')
+    var bottomRight = document.querySelector('.corner-bottom-right')
+    var bottomLeft = document.querySelector('.corner-bottom-left')
+    setTimeout(function () {
+      bottomRight.play()
+    }, 1000);
+    setTimeout(function () {
+      topRight.play()
+    }, 3000);
+    setTimeout(function () {
+      bottomLeft.play()
+    }, 2000);
+
+  </script>
 </section>
 
 <% if (site.data.projects) { %>
@@ -27,9 +50,10 @@
   <span class="h1"><a href="<%- url_for(theme.projects_url) %>">Projects</a></span>
   <ul class="project-list">
     <% for(var obj in site.data.projects){ %>
-      <li class="project-item">
-        <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%= site.data.projects[obj].desc %>
-      </li>
+    <li class="project-item">
+      <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>:
+      <%= site.data.projects[obj].desc %>
+    </li>
     <% } %>
   </ul>
 </section>
